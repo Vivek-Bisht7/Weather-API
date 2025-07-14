@@ -15,7 +15,9 @@ const getWeather = async (req,res)=>{
 
     try{
         const response = await axios.get(url);
+
         const data = response.data;
+
         const weatherData = {
             Address : data.address,
             Full_Address : data.resolvedAddress,
@@ -28,7 +30,7 @@ const getWeather = async (req,res)=>{
         return res.status(200).json(weatherData);
         
     } catch(err){
-        res.status(500).json({error :"Weather data fetch failed" + err.message});
+        res.status(500).json({error :"Weather data fetch failed :" + err.message});
     }
 }
 
